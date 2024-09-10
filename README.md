@@ -4,7 +4,7 @@ NPM : 2306215923
 
 Kelas : PBP A
 
-Tautan PWS : [https://pbp.cs.ui.ac.id/web/project/shaney.zoya/yarnsie](url)
+Tautan PWS : https://pbp.cs.ui.ac.id/web/project/shaney.zoya/yarnsie
 
 ## **Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)**
 
