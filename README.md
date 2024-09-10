@@ -152,7 +152,7 @@ ALLOWED_HOSTS = ["localhost", "127.0.0.1", "shaney-zoya-yarnsie.pbp.cs.ui.ac.id"
 ```
 
 ## **Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.**
-TBA
+![Uploading image.png…]()
 
 1. Permintaan Client: Pengguna membuka URL di browser mereka, yang mengirimkan permintaan ke server Django. Permintaan ini bisa berupa permintaan untuk sebuah halaman web atau data tertentu.
 
