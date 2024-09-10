@@ -16,7 +16,7 @@ Tautan PWS : [https://pbp.cs.ui.ac.id/web/project/shaney.zoya/yarnsie](url)
 
 3. Selanjutnya, saya menginstal beberapa dependensi yang tercantum dalam file requirements.txt, seperti django, gunicorn, whitenoise, psycopg2-binary, requests, dan urllib3. Dependensi ini diperlukan agar proyek dapat berjalan dengan baik. Instalasi dilakukan dengan menjalankan perintah "pip install -r requirements.txt".
 
-4. Langkah terakhir, saya membuat proyek Django bernama yarnsie dengan menjalankan perintah "django-admin startproject toko_kesayangan ." di terminal. Proses ini menghasilkan sebuah file bernama "manage.py".
+4. Langkah terakhir, saya membuat proyek Django bernama yarnsie dengan menjalankan perintah "django-admin startproject yarnsie ." di terminal. Proses ini menghasilkan sebuah file bernama "manage.py".
 
 ***b. Membuat aplikasi dengan nama main pada proyek tersebut***
 
