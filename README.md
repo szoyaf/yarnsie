@@ -6,7 +6,7 @@ Kelas : PBP A
 
 Tautan PWS : http://shaney-zoya-yarnsie.pbp.cs.ui.ac.id/
 
-### Tugas 2
+# Tugas 2
 ## **Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)**
 
 ***a. Membuat sebuah proyek Django baru***
@@ -206,7 +206,7 @@ Django sering dipilih sebagai framework pemula dalam pembelajaran pengembangan p
 ## **Mengapa model pada Django disebut sebagai ORM?**
 Model pada Django disebut sebagai ORM (Object-Relational Mapping) karena ia menghubungkan objek Python dengan tabel dalam basis data relasional. Dengan ORM, pengembang dapat bekerja dengan objek Python untuk melakukan operasi basis data tanpa menulis query SQL secara langsung. Model Django menyediakan pemetaan otomatis antara atribut model dan kolom tabel, memungkinkan pengelolaan relasi antar tabel, serta validasi dan constraint data. ORM juga mempermudah migrasi skema basis data dengan menghasilkan skrip migrasi otomatis berdasarkan perubahan pada model, sehingga menyederhanakan dan mempercepat interaksi dengan basis data.
 
-### Tugas 3
+# Tugas 3
 ## **Jelaskan mengapa kita memerlukan data delivery dalam pengimplementasian sebuah platform?**
 Data delivery adalah proses pengiriman data dari satu sistem atau komponen ke sistem lainnya dalam arsitektur platform, yang sangat penting untuk beberapa alasan:
 
@@ -222,7 +222,7 @@ Data delivery adalah proses pengiriman data dari satu sistem atau komponen ke si
 
 Secara umum, JSON (JavaScript Object Notation) lebih populer dibandingkan XML (eXtensible Markup Language) dalam pertukaran data modern, dan berikut adalah beberapa alasan mengapa JSON sering dianggap lebih baik, terutama dalam konteks aplikasi web:
 
-# **Kelebihan JSON dibandingkan XML:**
+### **Kelebihan JSON dibandingkan XML:**
 - **Ringan dan lebih sederhana:** JSON memiliki format yang lebih sederhana dan lebih mudah dibaca oleh manusia dan mesin. Ini berarti JSON biasanya lebih ringan karena tidak menggunakan tag pembuka dan penutup seperti XML. Ini mengurangi ukuran data yang ditransfer, yang membuatnya lebih efisien untuk web.
 
 - **Bersifat native di JavaScript:** JSON secara langsung diintegrasikan ke dalam bahasa JavaScript. Ini membuatnya sangat mudah digunakan di aplikasi web modern tanpa perlu konversi tambahan. Sementara XML memerlukan parsing yang lebih rumit.
@@ -231,12 +231,12 @@ Secara umum, JSON (JavaScript Object Notation) lebih populer dibandingkan XML (e
 
 - **Dukungan luas di API modern:** Banyak API saat ini, seperti API RESTful, lebih sering menggunakan JSON karena formatnya yang ringan, mudah dibaca, dan langsung kompatibel dengan teknologi web.
 
-# **Kelebihan XML:**
+### **Kelebihan XML:**
 - **Lebih kuat untuk data terstruktur kompleks:** XML lebih baik untuk merepresentasikan dokumen yang membutuhkan struktur data yang kompleks atau berisi metadata yang lebih rinci, seperti format dokumen, skema data, dan validasi data melalui XML Schema.
 
 - **Mendukung atribut dan namespace:** XML memungkinkan atribut tambahan dalam tag yang dapat berguna untuk menyimpan informasi lebih lanjut, sementara JSON tidak mendukungnya dengan cara yang sama.
 
-# **Mengapa JSON lebih populer?**
+### **Mengapa JSON lebih populer?**
 JSON lebih populer karena kemampuannya untuk menangani komunikasi data secara cepat dan sederhana di aplikasi web, yang menjadi tren utama pengembangan aplikasi modern. JSON sangat cocok untuk pengembangan aplikasi yang berfokus pada performa dan efisiensi data delivery, terutama di platform yang melibatkan API dan layanan berbasis web.
 
 ## **Jelaskan fungsi dari method is_valid() pada form Django dan mengapa kita membutuhkan method tersebut?**
@@ -246,7 +246,7 @@ Method is_valid() pada form Django digunakan untuk memeriksa apakah data yang di
 
 2. **Mengembalikan hasil validasi:** Jika data memenuhi semua syarat validasi, is_valid() akan mengembalikan True, yang berarti form bisa diproses lebih lanjut. Jika tidak valid, metode ini mengembalikan False, dan Django secara otomatis akan menyertakan pesan kesalahan pada form, sehingga pengguna bisa melihat kesalahan apa yang terjadi (misalnya, field yang belum diisi atau format input yang salah).
 
-# **Mengapa kita membutuhkan method ini?**
+### **Mengapa kita membutuhkan method ini?**
 - **Keamanan data:** Metode ini memastikan bahwa data yang akan disimpan ke dalam database sudah melalui proses validasi yang ketat. Ini membantu mencegah kesalahan atau data tidak valid yang mungkin menyebabkan kerusakan pada sistem atau aplikasi.
 
 - **Kontrol alur logika:** Dalam contoh kode yang kamu berikan, if form.is_valid() digunakan untuk memeriksa apakah form telah diisi dengan benar sebelum menyimpan data ke database. Jika valid, maka data disimpan (form.save()), dan setelah itu pengguna akan dialihkan menggunakan redirect().
@@ -316,14 +316,14 @@ urlpatterns = [
 ```
 
 ## **Screenshots**
-# XML
+### XML
 ![alt text](image-2.png)
 
-# JSON
+### JSON
 ![alt text](image-3.png)
 
-# XML by ID
+### XML by ID
 ![alt text](image-4.png)
 
-# JSON by ID
+### JSON by ID
 ![alt text](image-5.png)
