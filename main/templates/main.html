@@ -26,7 +26,13 @@
     <button class="button">Add New Product</button>
 </a>
 
+<h5>Sesi terakhir login: {{ last_login }}</h5>
+
+<a href="{% url 'main:logout' %}">
+    <button>Logout</button>
+</a>
+
 <div class="creator-info">
-    <p>Created by: {{ name }} - {{ npm }} - {{ class }}</p>
+    <p>{{ name }} - {{ npm }} - {{ class }}</p>
 </div>
 {% endblock content %}
