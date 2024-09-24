@@ -11,15 +11,26 @@ Tautan PWS : http://shaney-zoya-yarnsieproject.pbp.cs.ui.ac.id/
 *HttpResponseRedirect()* adalah kelas yang secara manual mengembalikan respons redirect ke URL tertentu, sementara *redirect()* adalah fungsi utilitas yang lebih fleksibel dan bisa digunakan untuk mengarahkan ke URL, view, atau objek model. *redirect()* sering digunakan karena lebih ringkas dan mudah dalam berbagai situasi.
 
 ## Jelaskan cara kerja penghubungan model MoodEntry dengan User!
+Dalam menghubungkan model Product dengan User, kita biasanya menggunakan ForeignKey di model Product. ForeignKey ini menunjukkan bahwa setiap produk memiliki relasi ke satu pengguna. Misalnya, dalam Django, kita dapat menambahkan atribut seperti user = models.ForeignKey(User, on_delete=models.CASCADE) di model Product untuk menghubungkan produk dengan pengguna yang membuatnya.
 
 ## Apa perbedaan antara authentication dan authorization, apakah yang dilakukan saat pengguna login? Jelaskan bagaimana Django mengimplementasikan kedua konsep tersebut.
-
+Authentication (otentikasi) adalah proses untuk memverifikasi identitas pengguna, seperti melalui username dan password. Sedangkan, authorization (otorisasi) adalah proses memeriksa apakah pengguna yang telah terverifikasi memiliki izin untuk mengakses fitur atau sumber daya tertentu. Saat pengguna login, mereka melalui proses otentikasi untuk memastikan identitas mereka. Django mengimplementasikan otentikasi dan otorisasi melalui framework authentication, yang menyediakan fungsi login() dan logout() untuk otentikasi, serta sistem izin (permissions) dan grup (groups) untuk mengelola otorisasi.
 
 ## Bagaimana Django mengingat pengguna yang telah login? Jelaskan kegunaan lain dari cookies dan apakah semua cookies aman digunakan?
-
+Django menjaga pengguna yang sudah login dengan memanfaatkan session dan cookies. Ketika pengguna login, Django menyimpan data pengguna dalam sesi, yang kemudian diidentifikasi melalui cookie yang disimpan di browser. Selain itu, cookies juga bisa digunakan untuk menyimpan preferensi pengguna atau informasi pelacakan. Namun, cookies dapat menimbulkan risiko keamanan seperti cross-site scripting (XSS) atau session hijacking. Untuk mengurangi risiko tersebut, Django mendukung penggunaan secure cookies dan HttpOnly cookies yang lebih aman.
 
 ## Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+1. **Mengimplementasikan fungsi registrasi, login, dan logout untuk memungkinkan pengguna untuk mengakses aplikasi sebelumnya dengan lancar.**
+Saya mulai dengan membuat form pendaftaran menggunakan UserCreationForm dari Django. Setelah itu, saya tambahkan view untuk proses registrasi, login, dan logout dengan membuat fungsi register(), login(), serta logout() di views.py. Saya menggunakan django.contrib.auth untuk menangani proses autentikasi, dan menerapkan login serta logout dengan fungsi login() dan logout(). URL routing di urls.py juga saya atur agar dapat mengakses halaman login, registrasi, dan logout. Terakhir, saya buat template HTML untuk form login dan registrasi, serta menambahkan tombol logout di header aplikasi.
 
+2. **Membuat dua akun pengguna dengan masing-masing tiga dummy data menggunakan model yang telah dibuat pada aplikasi sebelumnya untuk setiap akun di lokal.**
+Saya memulai dengan menjalankan aplikasi di localhost dan mengakses halaman registrasi yang telah disiapkan sebelumnya. Setelah itu, saya mendaftarkan dua akun baru melalui form registrasi di situs. Setelah kedua akun berhasil dibuat, saya login dengan masing-masing akun dan menambahkan tiga produk contoh untuk setiap akun tersebut.
+
+3. **Menghubungkan model Product dengan User.**
+Saya menambahkan relasi ForeignKey di model Product untuk menghubungkannya dengan User, dengan menambahkan atribut user = models.ForeignKey(User, on_delete=models.CASCADE). Setelah itu, saya menjalankan perintah python manage.py makemigrations dan python manage.py migrate untuk menerapkan perubahan skema database. Selain itu, saya memperbarui view yang menampilkan produk, sehingga hanya produk milik pengguna yang sedang login yang ditampilkan, menggunakan query Product.objects.filter(user=request.user).
+
+4. **Menampilkan detail informasi pengguna yang sedang logged in seperti username dan menerapkan cookies seperti last login pada halaman utama aplikasi.**
+Pada template halaman utama, saya menambahkan kode untuk menampilkan username pengguna yang sedang aktif menggunakan {{ name }}. Saya juga melihat bahwa Django secara otomatis menyimpan data last login pengguna di dalam cookies. Informasi ini kemudian saya ambil di view atau template, dan ditampilkan di halaman utama menggunakan {{ last_login }}.
 
 # Tugas 3
 ## **Jelaskan mengapa kita memerlukan data delivery dalam pengimplementasian sebuah platform?**
