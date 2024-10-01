@@ -6,6 +6,69 @@ Kelas : PBP A
 
 Tautan PWS : http://shaney-zoya-yarnsieproject.pbp.cs.ui.ac.id/
 
+# Tugas 5
+## Jika terdapat beberapa CSS selector untuk suatu elemen HTML, jelaskan urutan prioritas pengambilan CSS selector tersebut!
+CSS menggunakan aturan spesifik untuk menentukan mana style yang diterapkan pada elemen ketika beberapa selector ada. Urutan prioritas adalah sebagai berikut:
+
+1. **Inline Styles**: CSS yang diterapkan langsung pada elemen menggunakan atribut style. Contoh: <div style="color: red;">Text</div>. Ini memiliki prioritas tertinggi.
+
+2. **ID Selectors**: Selector yang menggunakan ID (misalnya, #id) memiliki prioritas lebih tinggi dibandingkan class atau tag. Contoh: #header { color: blue; }.
+
+3. **Class, Pseudo-class, dan Attribute Selectors**: Selector yang menggunakan class (misalnya, .class), pseudo-class (seperti :hover), dan attribute (misalnya, [type="text"]) memiliki prioritas yang lebih rendah daripada ID selectors. Contoh: .highlight { color: green; }.
+
+4. **Type Selectors (Tag Selectors)**: Selector berdasarkan nama elemen HTML (misalnya, div, p) memiliki prioritas paling rendah. Contoh: p { color: black; }.
+
+5. **Universal Selector**: Selector yang menggunakan asterisk (*) untuk memilih semua elemen memiliki prioritas terendah. Contoh: * { color: gray; }.
+
+6. **!important**: Jika ada properti CSS yang menggunakan !important, maka properti tersebut akan diutamakan terlepas dari urutan prioritas di atas. Namun, penggunaannya sebaiknya dihindari kecuali benar-benar diperlukan.
+
+## Mengapa responsive design menjadi konsep yang penting dalam pengembangan aplikasi web? Berikan contoh aplikasi yang sudah dan belum menerapkan responsive design!
+Responsive design adalah pendekatan dalam pengembangan web yang membuat tampilan aplikasi web dapat menyesuaikan diri dengan berbagai ukuran layar dan perangkat. Ini penting karena:
+
+- **Pengalaman Pengguna**: Menghadirkan pengalaman yang baik untuk pengguna di berbagai perangkat (desktop, tablet, dan smartphone).
+- **SEO (Search Engine Optimization)**: Mesin pencari seperti Google lebih suka situs web yang responsif, yang dapat meningkatkan peringkat pencarian.
+- **Konsistensi**: Memastikan konten terlihat dan berfungsi dengan baik tanpa mengharuskan pengguna memperbesar atau menggulir secara horizontal.
+
+**Contoh Aplikasi:**
+- Sudah menerapkan responsive design: Amazon, Google, dan Facebook.
+- Belum menerapkan responsive design: Beberapa situs web berita lama yang tidak dioptimalkan untuk perangkat mobile.
+
+## Jelaskan perbedaan antara margin, border, dan padding, serta cara untuk mengimplementasikan ketiga hal tersebut!
+1. **Margin**: Ruang di luar batas elemen, yang berfungsi untuk menciptakan jarak antara elemen tersebut dengan elemen lainnya. Margin tidak mempengaruhi ukuran elemen itu sendiri.
+- Implementasi: margin: 10px;
+
+2. **Border**: Garis yang mengelilingi elemen, berfungsi sebagai batas antara margin dan padding. Border mempengaruhi ukuran elemen karena menambah dimensi pada elemen tersebut.
+- Implementasi: border: 1px solid black;
+
+3. **Padding**: Ruang di dalam elemen, antara konten dan border. Padding menciptakan jarak antara konten dalam elemen dengan batasnya.
+- Implementasi: padding: 15px;
+
+## Jelaskan konsep flex box dan grid layout beserta kegunaannya!
+1. **Flexbox**:
+Merupakan model layout satu dimensi yang memungkinkan elemen di dalam kontainer untuk disusun dalam satu baris atau kolom.
+Kegunaan: Membantu mengatur spasi, ukuran, dan perataan item dalam layout yang fleksibel. Cocok untuk aplikasi dengan elemen yang berukuran bervariasi.
+- Contoh penggunaan: Menyusun menu navigasi atau card dalam baris.
+
+2. **Grid Layout**:
+Merupakan model layout dua dimensi yang memungkinkan pengaturan elemen dalam baris dan kolom.
+Kegunaan: Memudahkan pembuatan layout yang lebih kompleks dan terstruktur. Sangat berguna untuk aplikasi yang memerlukan grid untuk konten, seperti galeri foto atau dashboard.
+- Contoh penggunaan: Tata letak halaman web yang kompleks dengan beberapa bagian seperti sidebar, konten utama, dan footer.
+
+Kedua konsep ini sangat berguna dalam membuat desain web yang responsif dan efisien, memudahkan pengaturan elemen dalam berbagai ukuran layar.
+
+## Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)!
+Saya menambahkan fitur seperti navbar dan halaman profile extra untuk memisahkan antara data user dan produk yang tersedia.
+**Deskripsi Desain (tailwind)**
+- Kartu Produk: Setiap produk ditampilkan dalam kartu yang menarik, menampilkan nama produk, harga, deskripsi, dan stok. Desain kartu menggunakan latar belakang berwarna lembut dengan efek bayangan untuk memberikan kesan kedalaman.
+
+- Animasi dan Interaktivitas: Kartu produk dilengkapi dengan efek animasi saat hover, termasuk efek pulsasi yang menarik perhatian pengguna. Ini memberikan pengalaman yang dinamis dan interaktif.
+
+- Rating Produk: Sistem rating ditampilkan dengan grafik yang menunjukkan tingkat kepuasan pengguna. Rating dirancang agar terlihat menarik dan intuitif, dengan indikator yang jelas mengenai intensitas produk.
+
+- Tombol Aksi: Kartu produk dilengkapi dengan tombol untuk mengedit dan menghapus produk, dirancang dengan warna yang kontras untuk menarik perhatian, sehingga mudah diakses oleh admin.
+
+- Responsif: Desain responsif memastikan tampilan yang optimal di berbagai perangkat, mulai dari desktop hingga mobile.
+
 # Tugas 4
 ## Apa perbedaan antara HttpResponseRedirect() dan redirect()?
 *HttpResponseRedirect()* adalah kelas yang secara manual mengembalikan respons redirect ke URL tertentu, sementara *redirect()* adalah fungsi utilitas yang lebih fleksibel dan bisa digunakan untuk mengarahkan ke URL, view, atau objek model. *redirect()* sering digunakan karena lebih ringkas dan mudah dalam berbagai situasi.
