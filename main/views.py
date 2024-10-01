@@ -18,11 +18,9 @@ def show_main(request):
 
     context = {
         'name': request.user.username,
-        'npm': '2306215923',
         'app_name': 'Yarnsie',
         'class': 'PBP C',
         'product': product,
-        'last_login': request.COOKIES['last_login'],
     }
     return render(request, 'main.html', context)
 
@@ -32,6 +30,15 @@ def products(request):
         'products': product_list,
     }
     return render(request, 'products.html', context)
+
+def profile(request):
+    context = {
+        'name': request.user.username,
+        'npm': '2306215923',
+        'class': 'PBP C',
+        'last_login': request.COOKIES['last_login'],
+    }
+    return render(request, 'profile.html', context)
 
 def create_product(request):
     form = ProductForm(request.POST or None)
@@ -44,6 +51,24 @@ def create_product(request):
 
     context = {'form': form}
     return render(request, "create_product.html", context)
+
+def edit_product(request, id):
+    product = Product.objects.get(pk = id)
+
+    form = ProductForm(request.POST or None, instance=product)
+
+    if form.is_valid() and request.method == "POST":
+        form.save()
+        return HttpResponseRedirect(reverse('main:show_main'))
+
+    context = {'form': form}
+    return render(request, "edit_product.html", context)
+
+def delete_product(request, id):
+    product = Product.objects.get(pk = id)
+    product.delete()
+
+    return HttpResponseRedirect(reverse('main:show_main'))
 
 def show_xml(request):
     data = Product.objects.all()

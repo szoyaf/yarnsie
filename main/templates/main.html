@@ -1,38 +1,70 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>Yarnsie</title>
+{% endblock meta %}
+
 {% block content %}
-<div class="welcome">
-    <h3>Welcome to {{ app_name }}.</h3>
+{% include 'navbar.html' %}
+
+<style>
+  @keyframes float {
+    0%, 100% {
+      transform: translatey(5px);
+      color: #9D174D;
+    }
+    50% {
+      transform: translatey(-5px);
+      color: #EC4899;
+    }
+  }
+
+  /* Apply the animation to the 'Yarnsie' text */
+  .animate-float {
+    display: inline-block; /* Ensures the animation applies correctly */
+    animation: float 4s ease-in-out infinite; /* 2 seconds duration, ease in/out, repeat infinitely */
+  }
+
+</style>
+
+
+<!-- Welcome Section -->
+<div class="flex justify-center items-center min-h-screen bg-pink-100 text-center">
+  <h1 class="text-4xl md:text-6xl font-extrabold text-pink-700">
+    Welcome to <span class="animate-float">Yarnsie</span>
+  </h1>
 </div>
 
-{% if not product %}
-<p>Belum ada data product pada yarnsie.</p>
-{% else %}
-<div class="products"></div>
-    {% for objects in product %}
-    <div class="product-box">
-        <h1>{{ objects.name }}</h1>
-        <p>Description: {{ objects.description }}</p>
-        <p class="price">Price: Rp{{ objects.price }}</p>
-        <p class="rating">Rating: {{ objects.rating }} / 10</p>
-        <p class="stock">Stock Left: {{ objects.stock }}</p>
+
+<!-- Add Product and Product List Section -->
+<!-- Add top padding to ensure content isn't covered by the navbar -->
+<div class="overflow-x-hidden px-4 md:px-8 pb-8 pt-36 min-h-screen bg-pink-100 flex flex-col">
+  <!-- Add Product Button -->
+  <div class="flex justify-center mb-6">
+    <a href="{% url 'main:create_product' %}" class="bg-pink-400 hover:bg-pink-500 text-white font-bold py-2 px-4 rounded-full transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110 shadow-lg">
+      Add Product
+    </a>
+  </div>
+
+  <!-- No Product Data -->
+  {% if not product %}
+  <div class="flex flex-col items-center justify-center min-h-[24rem] p-6">
+    <img src="{% static 'image/sedih-banget.png' %}" alt="Sad face" class="w-32 h-32 mb-4 opacity-90 hover:opacity-100 transition-opacity duration-300"/>
+    <p class="text-center text-gray-600 mt-4 font-semibold">Belum ada data product pada Yarnsie.</p>
+  </div>
+  {% else %}
+
+  <!-- Product Grid -->
+  <div class="flex justify-center w-full">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl">
+      {% for object in product %}
+        <div class="flex justify-center">
+          {% include 'card_product.html' with product=object %}
+        </div>
+      {% endfor %}
     </div>
-    {% endfor %}
-</div>
-{% endif %}
-
-<br />
-
-<a href="{% url 'main:create_product' %}">
-    <button class="button">Add New Product</button>
-</a>
-
-<h5>Sesi terakhir login: {{ last_login }}</h5>
-
-<a href="{% url 'main:logout' %}">
-    <button>Logout</button>
-</a>
-
-<div class="creator-info">
-    <p>{{ name }} - {{ npm }} - {{ class }}</p>
+  </div>
+  {% endif %}
 </div>
 {% endblock content %}
