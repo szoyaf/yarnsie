@@ -6,6 +6,30 @@ Kelas : PBP A
 
 Tautan PWS : http://shaney-zoya-yarnsieproject.pbp.cs.ui.ac.id/
 
+# Tugas 6
+## Jelaskan manfaat dari penggunaan JavaScript dalam pengembangan aplikasi web!
+- Menambahkan interaktivitas pada halaman web.
+- Memungkinkan validasi client-side.
+- Membuat aplikasi web dinamis (SPA).
+- Mengambil data dari API secara real-time.
+- Kompatibilitas lintas platform.
+
+## Jelaskan fungsi dari penggunaan await ketika kita menggunakan fetch()! Apa yang akan terjadi jika kita tidak menggunakan await?
+Fungsi await ketika menggunakan fetch() adalah await memastikan bahwa kode menunggu respons dari server sebelum melanjutkan. Tanpa await, JavaScript akan terus menjalankan kode lain meski respons belum diterima, yang bisa menyebabkan kesalahan jika mencoba memproses data yang belum ada.
+
+## Mengapa kita perlu menggunakan decorator csrf_exempt pada view yang akan digunakan untuk AJAX POST?
+AJAX POST request tidak selalu mengirimkan token CSRF secara otomatis. @csrf_exempt menonaktifkan pengecekan CSRF agar request tidak ditolak oleh server. Namun, ini hanya boleh digunakan dengan pertimbangan keamanan tambahan, seperti autentikasi yang kuat.
+
+## Pada tutorial PBP minggu ini, pembersihan data input pengguna dilakukan di belakang (backend) juga. Mengapa hal tersebut tidak dilakukan di frontend saja?
+Pembersihan di backend memastikan keamanan, karena validasi di frontend bisa dilewati oleh pengguna berbahaya. Backend bertanggung jawab untuk melindungi dari serangan seperti SQL injection atau XSS, menjaga integritas dan keamanan aplikasi.
+
+## Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)!
+AJAX GET
+Menambahkan tag script di bagian kedua paling bawah pada main.html. Lalu saya membuat fungsi untuk melakukan fetch dari method GET yang sudah saya buat sebelumnya. Setelah itu, saya menambahkan fungsi refresh untuk mengiterasi hasil fetch tersebut sehingga produk yang ditambahkan bisa muncul secara real-time.
+
+AJAX POST
+Membangun komponen modal dengan memanfaatkan class hidden yang bisa di-show melalui JavaScript. Ada tombol yang jika diklik akan menjalankan fungsi untuk membuka modal dengan menghapus class hidden tersebut. Setelah modal tampil, form POST akan mengarah ke API di views yang telah saya buat khusus untuk AJAX. Setelah POST dijalankan, fungsi refresh akan memastikan pengguna tidak perlu reload halaman untuk melihat produk baru, dan input pada modal akan dikosongkan.
+
 # Tugas 5
 ## Jika terdapat beberapa CSS selector untuk suatu elemen HTML, jelaskan urutan prioritas pengambilan CSS selector tersebut!
 CSS menggunakan aturan spesifik untuk menentukan mana style yang diterapkan pada elemen ketika beberapa selector ada. Urutan prioritas adalah sebagai berikut:
